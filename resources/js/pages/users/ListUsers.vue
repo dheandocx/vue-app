@@ -1,11 +1,12 @@
 <script setup>
 import axios from "axios";
+import { ref, onMounted } from 'vue';
 
-const users = [];
+const users = ref([]);
 
 const getUsers = () => {
     axios.get("/api/users").then((response) => {
-        users = response.data;
+        users.value = response.data;
     });
 };
 
